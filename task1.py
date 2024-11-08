@@ -37,14 +37,23 @@ def convert_number(number: str, depart_system: int, arrive_system: int) -> str:
 def run_converter():
     while True:
         number = input("Please enter a number: ")
-        depart_system = input("Please enter number system of this number: ")
+        # depart_system = input("Please enter number system of this number: ")
         arrive_system = input("Please enter system you want to convert to: ")
+
+        params = number.split("x")
+        if not len(params) == 2:
+            print("Invalid number written. It must follow format 'NN...NNxS'")
+            break
+
+        number = params[0]
+        depart_system = params[1]
+
 
         if depart_system.isdigit() and arrive_system.isdigit():
             depart_system = int(depart_system)
             arrive_system = int(arrive_system)
-            if (depart_system > 16 or depart_system < 1) or (arrive_system > 16 or arrive_system < 1):
-                print('The systems must be in range 1 to 16')
+            if (depart_system > 16 or depart_system < 2) or (arrive_system > 16 or arrive_system < 2):
+                print('The systems must be in range 2 to 16')
                 continue
         else:
             print('The systems must be integers')
