@@ -16,7 +16,7 @@ def convert_to_decimal(str_num: str, depart_system: int) -> int:
 
     return result_num
 
-def convert_from_decimal(num: int, arrive_system) -> str:
+def convert_from_decimal(num: int, arrive_system: int) -> str:
 
     decimal_num = num
     result_num = ""
@@ -37,7 +37,6 @@ def convert_number(number: str, depart_system: int, arrive_system: int) -> str:
 def run_converter():
     while True:
         number = input("Please enter a number: ")
-        # depart_system = input("Please enter number system of this number: ")
         arrive_system = input("Please enter system you want to convert to: ")
 
         params = number.split("x")
@@ -47,7 +46,6 @@ def run_converter():
 
         number = params[0]
         depart_system = params[1]
-
 
         if depart_system.isdigit() and arrive_system.isdigit():
             depart_system = int(depart_system)
